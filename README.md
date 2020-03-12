@@ -6,6 +6,8 @@ Baixe o arquivo zipado e leia o FAQ para descobrir qual é a senha do zip.
 
 Deixe o binário na raiz deste repositório.
 
+IMPORTANTE: no arquivo lucky_numbers.py, o terminal configurado é o zsh, se utilizar outro, troque antes de executar.
+
 Informações sobre o binário:
 
 ```bash
