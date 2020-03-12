@@ -9,6 +9,7 @@ Deixe o binário na raiz deste repositório.
 IMPORTANTE: no arquivo lucky_numbers.py, o terminal configurado é o zsh, se utilizar outro, troque antes de executar.
 
 ## Pré-requisito:
+- linux (ou algo compatível, foi feito e testando em um manjaro)
 - python 3
 - pip
   - pwn (pip install pwn)
