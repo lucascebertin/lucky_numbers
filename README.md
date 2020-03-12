@@ -8,7 +8,15 @@ Deixe o binário na raiz deste repositório.
 
 IMPORTANTE: no arquivo lucky_numbers.py, o terminal configurado é o zsh, se utilizar outro, troque antes de executar.
 
-Informações sobre o binário:
+## Pré-requisito:
+- python 3
+- pip
+  - pwn (pip install pwn)
+- gdb
+- gdbserver (instalado junto com o gdb)
+
+
+## Informações sobre o binário:
 
 ```bash
 $ file lucky_numbers
@@ -76,7 +84,7 @@ $ strings -t d -d lucky_numbers
    8218 Sorry :((
 ```
 
-Assembly extraido via objdump:
+## Assembly extraido via objdump:
 
 ```bash
 $ objdump -M intel -d ./lucky_numbers
@@ -123,9 +131,11 @@ $ objdump -M intel -d ./lucky_numbers
  804908b:	74 90                	je     0x804901d
 ```
 
+## Ponto de entrada do binário
+
 Através do resultado do readelf, podemos ver que a entrada do binário está em: `Entry point address: 0x804903a`
 
-Chamadas de [kernel](https://syscalls.kernelgrok.com/):
+## Chamadas de [kernel](https://syscalls.kernelgrok.com/):
 
 Sys-write:
 ```asm
@@ -151,7 +161,7 @@ mov    edx,0x2
 int    0x80
 ```
 
-Código que realmente interessa:
+## Código que realmente interessa:
 
 ```asm
 mov    al,ds:0x804a024            # dado o valor de entrada, extraia o primeiro digito em AL
@@ -169,7 +179,7 @@ cmp    eax,eax                    # comparação inutil, sempre dá true (ex: 1 
 je     0x804901d                  # jump para mensagem de sucesso
 ```
 
-Análise e RE:
+## Análise e RE:
 ```c
 falha() { 
   print("Sorry :((").
@@ -229,14 +239,16 @@ y = '8'
 */
 ```
 
-Brute usando pwntools: [link](lucky_numbers.py)
+## Brute force
+
+### Brute usando pwntools: [link](lucky_numbers.py)
 
 ```bash
 $ python3 ./lucky_numbers.py
 Found it... 88
 ```
 
-Brute usando GDB com python: [link](lucky_numbers_gdb.py)
+### Brute usando GDB com python: [link](lucky_numbers_gdb.py)
 
 ```bash
 $ gdb
