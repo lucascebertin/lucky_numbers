@@ -2,6 +2,10 @@
 
 Desafio simples (nivel 1) do site crackmes.one
 
+Baixe o arquivo zipado e leia o FAQ para descobrir qual é a senha do zip.
+
+Deixe o binário na raiz deste repositório.
+
 Informações sobre o binário:
 
 ```bash
