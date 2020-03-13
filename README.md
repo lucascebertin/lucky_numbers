@@ -13,7 +13,7 @@ IMPORTANTE: no arquivo lucky_numbers.py, o terminal configurado é o zsh, se uti
 - python 3
 - pip
   - pwn (pip install pwn)
-- gdb
+- gdb (versão 10)
 - gdbserver (instalado junto com o gdb)
 
 
